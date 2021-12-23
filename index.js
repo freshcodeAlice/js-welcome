@@ -5,17 +5,8 @@ console.log(box);
 
 let value = 5; //Объявление и инициализация
 
-//let _ - loadash
-//let $ - jQuery
+value = 10;
 
-//let 4u - Запрещено!
+const box2 = 35;
+console.log(box2);
 
-
-
-/*
-console.log(1);
-console.log('hello');
-console.log(true);
-console.log(undefined);
-console.log(null);
-*/
