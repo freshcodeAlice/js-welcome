@@ -1,15 +1,11 @@
-/* 
-Примитив:
-1. Boolean - true/false, логический тип
-2. Number - числа
-3. BigInt - числа с повышенной точностью
-4. null - пустое значение
-5. undefined - неопределенное значение
-6. String - строка
-7. Symbol - символьный тип
+let a = 1;
+let b = "22";
+let c = true;
+let d = null;
+let e;
 
-Не примитив:
-8. Object - объект.
-Всё, что не примитив - объект
-
-*/
+console.log(typeof a);
+console.log(typeof b);
+console.log(typeof c);
+console.log(typeof d);
+console.log(typeof e);
