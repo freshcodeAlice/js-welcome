@@ -1,11 +1,21 @@
-let a = 1;
-let b = "22";
-let c = true;
-let d = null;
-let e;
+// console.log(7 % 2);
 
-console.log(typeof a);
-console.log(typeof b);
-console.log(typeof c);
-console.log(typeof d);
-console.log(typeof e);
+if (null) {
+console.log("I`m true");
+} 
+    /* Приведение Boolean
+     1 = true
+     0 = false
+    любое число кроме 0 = true 
+
+    "" = false
+    "(любой символ)" = true
+    undefined = false
+    null = false
+
+    NaN = false
+
+    */
+
+//console.log("Next operation");
+
