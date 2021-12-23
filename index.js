@@ -1,16 +1,15 @@
-let box; //Объявление переменной (Декларация)
-box = 3; //Инициализация переменной
+/* 
+Примитив:
+1. Boolean - true/false, логический тип
+2. Number - числа
+3. BigInt - числа с повышенной точностью
+4. null - пустое значение
+5. undefined - неопределенное значение
+6. String - строка
+7. Symbol - символьный тип
 
-//console.log(newVariable); //Код работает до первой ошибки
+Не примитив:
+8. Object - объект.
+Всё, что не примитив - объект
 
-console.log(box);
-
-let value = 5; //Объявление и инициализация
-
-value = 10;
-
-const box2 = 35;
-console.log(box2);
-
-let superPuperImportantVariable; // Camel Case notation
-
+*/
