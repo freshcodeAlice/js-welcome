@@ -1,9 +1,6 @@
-let box = 10;
+let value = 1, value2 = 2, value3 = 3;
 
-box += 10; // Равнозначно box = box + 10
 
-box -= 10; // box = box - 10;
-
-box *= 10;
-
-box /= 10;
+console.log(value);
+console.log(value2);
+console.log(value3);
