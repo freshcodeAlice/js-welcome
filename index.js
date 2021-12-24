@@ -1,10 +1,16 @@
-console.log("Маша сказала:\"Привет\"");  // Save quotes
+let step = 0;
+// console.log(++step);
+// console.log(step++);
 
-console.log('Маша сказала:"Привет"');
 
-console.log('Маша сказала:\n \t "\u0462, Привет"');
 
-/* 
-\n - перенос строки
-\t - табуляция
-*/
+
+
+// console.log(step++);
+// console.log(step);
+
+// console.log(--step);
+// console.log(step--);
+
+
+
