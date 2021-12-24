@@ -1,7 +1,22 @@
-let a = 5;
-let b = '5';
+// alert - модалка с сообщением
+// prompt - модалка с инпутом, куда можно ввести сообщение
+// confirm - модалка с подтверждением или отменой
+let number;
+let result;
+let action;
 
-console.log(a === b);
+number = prompt('Type the number');
 
-// == - Равенство  с приведением типов
-// === - (Строгое) равенство (без приведения)
+action = prompt('Choose your action');
+
+if (action === '+') {
+result = Number(number) + 2;
+} else {
+result = Number(number) - 2;    
+}
+
+alert(result);
+
+// console.log(result);
+
+
