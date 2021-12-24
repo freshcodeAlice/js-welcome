@@ -1,8 +1,9 @@
-let age = 15;
+let box = 10;
 
-console.log( age > 10 && age < 20); // Logic AND
-// Первая встреченная неправда
+box += 10; // Равнозначно box = box + 10
 
+box -= 10; // box = box - 10;
 
-console.log( age < 10 || age > 20); // Logic OR
-// Первая встреченная правда
+box *= 10;
+
+box /= 10;
