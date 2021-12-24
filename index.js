@@ -1,21 +1,10 @@
-// console.log(7 % 2);
+console.log("Маша сказала:\"Привет\"");  // Save quotes
 
-if (null) {
-console.log("I`m true");
-} 
-    /* Приведение Boolean
-     1 = true
-     0 = false
-    любое число кроме 0 = true 
+console.log('Маша сказала:"Привет"');
 
-    "" = false
-    "(любой символ)" = true
-    undefined = false
-    null = false
+console.log('Маша сказала:\n \t "\u0462, Привет"');
 
-    NaN = false
-
-    */
-
-//console.log("Next operation");
-
+/* 
+\n - перенос строки
+\t - табуляция
+*/
