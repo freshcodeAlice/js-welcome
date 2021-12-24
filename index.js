@@ -1,6 +1,7 @@
-let value = 1, value2 = 2, value3 = 3;
+let a = 5;
+let b = '5';
 
+console.log(a === b);
 
-console.log(value);
-console.log(value2);
-console.log(value3);
+// == - Равенство  с приведением типов
+// === - (Строгое) равенство (без приведения)
