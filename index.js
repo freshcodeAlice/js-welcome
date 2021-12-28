@@ -1,56 +1,39 @@
-
-// function washMachine(mode, temperature, rpm, soap, clothes) {
-//     // do something
-//     //return clean clothes
-// }
-
-// const boxForCleanClothes = washMachine('delicate', 35, 800, 'ariel', 'shirts');
-
-
-
-/* Function Declaration:
-function имя_функции(параметры функции) {
-    тело функции
-}
-
-Function Expression:
-const имя_фунции = function (параметры) {
-    тело функции
-}
-
-Arrow Function:
-const имя_функции = (параметры) => {тело}
-
-
-Вызов:
-имя_функции(аргументы);
+/* 
+1. Функция, которая вернет максимальное значение из двух предложенных
+2. Функция, которая вернет минимальное значение из двух предложенных
+3. Функция, которая определяет четное или нечетное число
 
 */
 
 
-const inputValue1 = Number(prompt('Type first number'));
-const inputValue2 = Number(prompt('Type second number'));
+// Task 1
 
-const getSumOfTwo = function(value1, value2){
-    let result;
-    if (isNaN(value1) && isNaN(value2)) {
-        result = 'Wrong';
+function getMax(num1, num2) {
+    if(num1 > num2) {
+       return num1;
     } else {
-        result = value1 + value2;
+        return num2;
     }
-
-    debugger;
-// Scope - область видимости
-
-  return result;
 }
 
+const bigger = getMax(5, 10);
+alert(bigger);
 
-const result = getSumOfTwo(inputValue1, inputValue2);
-alert(result);
+// Task 1
 
-const aaa = 55;
-const bbb = 44;
+function getMin(num1, num2) {
+    if(num1 < num2) {
+       return num1;
+    } else {
+        return num2;
+    }
+}
 
+const smaller = getMin(1, 2);
+alert(smaller);
 
-const secondResult = getSumOfTwo(55, 44);
+function isEven (num) {
+   return (num % 2 === 0)
+}
+
+console.log(isEven(4))
