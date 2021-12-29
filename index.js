@@ -1,3 +1,25 @@
+// debugger;
+
+// function pow(a) {
+//     return a*a
+// };
+// let b = 0;
+
+// b = pow;
+
+// console.log(b(2));
+
+
+/* if (условие) {
+    блок кода
+} else {
+    блок кода, который выполнится в противном случае
+}
+*/
+
+
+
+
 /* if (условие) {
     блок кода
 } else {
@@ -10,25 +32,38 @@
 */
 
 
-const number;
-let result;
-if (number > 5) {
-    result = 'yes';
+/* Else - if
+
+if (условие) {
+
+} else if (новое условие) {
+
+} else if (новое условие) {
+    
 } else {
-    result = 'no';
+
 }
 
-let result = (number > 5) ? 'yes' : 'no';
 
-/* Задача: 
-дана переменная, в которой лежит время суток (от 0 до 24)
-В вечернее время переменная 'theme' должна получить значение dark,
-в дневное - light
-
-
-P.S День с 7 до 17, вечер (ночь) с 17 до 7
 */
 
-const hour = 12;
 
-const theme = (hour >= 7 && hour <= 17) ? 'light' : 'dark';
+const number = +prompt('Type your number');
+
+debugger;
+
+if(isNaN(number)) {
+    console.log('Некорректное число');
+} else if (number % 5 === 0) {
+    console.log('Делится на 5');
+} else if (number % 3 === 0) {
+    console.log('Делится на 3');
+} else if (number % 2 === 0) {
+    console.log('Делится на 2');
+} else {
+    console.log('Не делится ни на 5, ни на 3, ни на 2');
+}
+
+
+
+console.log('end of script');
