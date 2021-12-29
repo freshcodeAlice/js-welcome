@@ -5,27 +5,30 @@
 }
 */
 
-const globalVar = 'test';
+/* Тернарный оператор 
+условие ? если да : если нет
+*/
 
-debugger;
 
-if (globalVar) {
-    const localVar = 10;
-    console.log(localVar);
-    console.log(globalVar);
-    console.log('ok, it`s true');
-
- 
-    
-    if(localVar) {
-        const innerVar = true;
-    }
-    // console.log(innerVar);
-
+const number;
+let result;
+if (number > 5) {
+    result = 'yes';
 } else {
-    console.log('it`s false');
+    result = 'no';
 }
 
-console.log('end of script');
+let result = (number > 5) ? 'yes' : 'no';
+
+/* Задача: 
+дана переменная, в которой лежит время суток (от 0 до 24)
+В вечернее время переменная 'theme' должна получить значение dark,
+в дневное - light
 
 
+P.S День с 7 до 17, вечер (ночь) с 17 до 7
+*/
+
+const hour = 12;
+
+const theme = (hour >= 7 && hour <= 17) ? 'light' : 'dark';
