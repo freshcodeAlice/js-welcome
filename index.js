@@ -1,39 +1,31 @@
-/* 
-1. Функция, которая вернет максимальное значение из двух предложенных
-2. Функция, которая вернет минимальное значение из двух предложенных
-3. Функция, которая определяет четное или нечетное число
-
+/* if (условие) {
+    блок кода
+} else {
+    блок кода, который выполнится в противном случае
+}
 */
 
+const globalVar = 'test';
 
-// Task 1
+debugger;
 
-function getMax(num1, num2) {
-    if(num1 > num2) {
-       return num1;
-    } else {
-        return num2;
+if (globalVar) {
+    const localVar = 10;
+    console.log(localVar);
+    console.log(globalVar);
+    console.log('ok, it`s true');
+
+ 
+    
+    if(localVar) {
+        const innerVar = true;
     }
+    // console.log(innerVar);
+
+} else {
+    console.log('it`s false');
 }
 
-const bigger = getMax(5, 10);
-alert(bigger);
+console.log('end of script');
 
-// Task 1
 
-function getMin(num1, num2) {
-    if(num1 < num2) {
-       return num1;
-    } else {
-        return num2;
-    }
-}
-
-const smaller = getMin(1, 2);
-alert(smaller);
-
-function isEven (num) {
-   return (num % 2 === 0)
-}
-
-console.log(isEven(4))
