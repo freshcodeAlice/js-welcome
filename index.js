@@ -60,11 +60,14 @@
 Условие: функцию сделать с тернарным оператором
 */
 
-function greeting(name) {
-const checkedName = name ? name : 'Аноним';
-console.log('Привет, ' + checkedName);
-}
+// function greeting(name) {
+// const checkedName = name ? name : 'Аноним';
+// console.log('Привет, ' + checkedName);
+// }
 
-const userName = prompt('What`s your name?');
-greeting(userName);
+// const userName = prompt('What`s your name?');
+// greeting(userName);
 
+(function sayHi(name) {
+    console.log('Hi, '+name);
+})('Masha');
