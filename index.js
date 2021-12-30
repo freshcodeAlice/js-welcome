@@ -2,7 +2,7 @@ const GOOD_PASSWORD = 'qwerty123';
 /* Задача: спрашивать у пользователя пароль (с помощью промпта), пока он не введет правильный
 */
 
-let count = 0;
+
 const MAX_TRY = 5;
 
 // каждый круг цикла называется итерация
@@ -14,10 +14,27 @@ const MAX_TRY = 5;
 //    }
 //  }
 
+//  for (Инициализация;Условие;Изменение на каждом шаге итерации) {
+// блок кода
+//  }
 
- do {
- console.log('Do' + count)
- } while (count++ < 5)
+
+/* Написать функцию, которая возвращает факториал числа */
+
+function factorial(a) {
+
+    let result = 1;
+
+    for(let i = 1; i <= a; i++){
+    result *= i;
+    }
+
+     return result
+}
+
+ const res = factorial(4);
+ console.log(res);
+
 
 
 
