@@ -63,6 +63,9 @@ const number1 = +prompt('Введите первое число');
 const number2 = +prompt('Введите второе число');
 const mode = prompt('Выберите действие: \n + - Сложение \n - - Вычитание \n * - Умножение \n / - деление');
 
+const res = calculate(number1, number2, mode);
+console.log(res);
+
 //debugger;
 
 function sum (a, b) {
@@ -81,32 +84,40 @@ function div (a, b){
     return a / b;
 }
 
+function calculate(num1, num2, userMode) {
+    let f;
+    switch (userMode) {
+        case '+':
+            f = sum;
+            break;
+        case '-':
+            f = sub;
+            break;
+        case '*':
+            f = mult;
+            break;
+        case '/':
+            f = div;
+            break;               
+    }
 
-let f;
-
-switch (mode) {
-    case '+':
-        f = sum;
-        break;
-    case '-':
-        f = sub;
-        break;
-    case '*':
-        f = mult;
-        break;
-    case '/':
-        f = div;
-        break;
-                     
+    if (typeof f === 'function') {
+        const result = f(num1, num2);
+        return result;
+    } else {
+        console.log('Ooops! Something goes wrong');
+        return null;
+    }
 }
 
-if (typeof f === 'function') {
-    const result = f(number1, number2);
-    console.log(result);
-} else {
-    console.log('Ooops! Something goes wrong');
-    return null;
-}
+
+
+
+
+
+
+
+
 
 /* Task 2 
 В переменной day лежит число от 1 до 31.
