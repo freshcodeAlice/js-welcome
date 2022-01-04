@@ -1,39 +1,49 @@
-const cat1 = {
-    name: 'Barsik',
-    age: 4,
-    color: 'ginger',
-    weight: 5,
-    breed: 'Cheshirkiy',
-    isMale: true,
-    run: function() {
-        return 'I AM RUNNING'
-    },
-    sleep: function() {
-        return 'Zzzzz...'
-    },
-    meow: function() {
-        return 'MEOW!!!'
-    }
-}; 
-
-
-function Cat(name, age, color, weight, breed, isMale) {
+function Country(name, population, area) {
     this.name = name;
-    this.age = age;
-    this.color = color;
-    this.weight = weight;
-    this.breed = breed;
-    this.isMale = isMale;
-    this.run = function(){
-        return 'I am running!';
-    }
-    this.meow = function() {
-        return 'MEOEWOEW!';
+    this.population = population;
+    this.area = area;
+    this.getDensity = function() {
+        return this.population / this.area;
     }
 }
 
-const firstCat = new Cat('Murzik', 4, 'white', 3, 'Persian', true);
 
+const ukraine = new Country('Ukraine', 44_130_000, 603_628);
 
-const secondCat = new Cat('Busia', 7, 'black', 4, 'Siam', false);
+function Car(name, maxSpeed){
+    this.name = name;
+    this.maxSpeed = maxSpeed;
+    this.speed = 0;
+    this.accelerate = function(value){
+        if(value < 0) {
+            return false;
+        }
 
+        this.speed = this.speed + value;
+        if(this.speed > this.maxSpeed) {
+            this.speed = this.maxSpeed;
+            return this.speed;
+        }
+
+    return this.speed;
+    }
+
+    this.deaccelerate = function(value){
+        if(value < 0) {
+            return false;
+        }
+
+        this.speed = this.speed - value;
+        if(this.speed < 0) {
+            this.speed = 0;
+            return this.speed;
+        }
+        return this.speed;
+    }
+
+    this.stop = function() {
+        return (this.speed = 0)
+    }
+}
+
+const blueCar = new Car('BMV', 220);
