@@ -1,27 +1,39 @@
-const cat = {
+const cat1 = {
     name: 'Barsik',
     age: 4,
     color: 'ginger',
     weight: 5,
     breed: 'Cheshirkiy',
     isMale: true,
-    isSleeping: false
+    run: function() {
+        return 'I AM RUNNING'
+    },
+    sleep: function() {
+        return 'Zzzzz...'
+    },
+    meow: function() {
+        return 'MEOW!!!'
+    }
 }; 
 
-console.log(cat); // read
 
-cat.age = cat.age + 1; //update
+function Cat(name, age, color, weight, breed, isMale) {
+    this.name = name;
+    this.age = age;
+    this.color = color;
+    this.weight = weight;
+    this.breed = breed;
+    this.isMale = isMale;
+    this.run = function(){
+        return 'I am running!';
+    }
+    this.meow = function() {
+        return 'MEOEWOEW!';
+    }
+}
 
-console.log(cat.age);
+const firstCat = new Cat('Murzik', 4, 'white', 3, 'Persian', true);
 
-/* 
-C - create
-R - read
-U - update
-D - delete
 
-*/
+const secondCat = new Cat('Busia', 7, 'black', 4, 'Siam', false);
 
-cat.isSleeping = undefined; // bad practice delete
-
-delete cat.isSleeping; // delete property
