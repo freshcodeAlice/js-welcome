@@ -1,28 +1,27 @@
+const cat = {
+    name: 'Barsik',
+    age: 4,
+    color: 'ginger',
+    weight: 5,
+    breed: 'Cheshirkiy',
+    isMale: true,
+    isSleeping: false
+}; 
 
-/* Написать функцию, которая возводит число в заданную степень */
+console.log(cat); // read
 
-function getPower(base, power) {
-    if(power === 0) {
-        return 1
-    }
+cat.age = cat.age + 1; //update
 
-    if(power === 1) {
-        return base
-    }
+console.log(cat.age);
 
-    let result = 1;
+/* 
+C - create
+R - read
+U - update
+D - delete
 
-    for (let i = 1; i <= power; i++){
-        result *= base;
-    }
-    return result;
+*/
 
-}
+cat.isSleeping = undefined; // bad practice delete
 
-
-
-
-
-
-
-
+delete cat.isSleeping; // delete property
