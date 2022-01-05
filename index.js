@@ -1,9 +1,14 @@
-const PROTOCOL = 'http://';
-const SERVER_IP = 'www.google.com';
-const PORT = '80';
-
-function createQuery(absPath) {
-
-    const url = `${PROTOCOL}${SERVER_IP}:${PORT}${absPath}`;
-    return url
+const user = {
+    'favorite color': 'green',
+    0: 'test'
 }
+
+user.favoriteColor // Доступ к свойству
+
+user['favorite color'] //Доступ к свойству с возможностью вычисления
+user[0]
+user['0']
+
+const test = 'favorite color';
+
+user[test]
