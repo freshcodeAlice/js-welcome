@@ -1,31 +1,22 @@
-/* Реализуйте функцию-конструктор Worker (Работник), который будет иметь следующие свойства: 
-name, 
-surname, 
-age (возраст), 
-rate (ставка за день работы), 
-days (количество отработанных дней). 
 
-Также класс должен иметь метод getSalary(), который будет выводить зарплату работника. Зарплата - это произведение (умножение) ставки rate на количество отработанных дней days.*/
+//const number1 = +prompt('Type first number');
+//const number2 = +prompt('Type second number');
 
-function Worker(name, surname, age, rate, days) {
-    this.name = name;
-    this.surname = surname;
-    this.age = age;
-    this.rate = rate;
-    this.days = days;
+number1 = 7;
+number2 = 6;
 
-    this.getSalary = function() {
-        if(isNaN(this.days) || isNaN(this.rate)) {
-            return false
-        }
-        
-        if( this.days > 31)
-        {
-           return null;
-        }
+//alert(number1 + ' + ' + number2 + ' = ' + (number1 + number2));
 
+'fdfdffdsdfsdf'
+" gdf  "
 
-        return this.rate * this.days
+//console.log(`Sum is ${2 + 2}`); // Template string
 
-    }
+function getDecription() {
+    return 'of these numbers'
 }
+
+console.log(`Sum ${getDecription()}: ${number1} + ${number2} = ${number1+number2}`);
+console.log(`Sub ${getDecription()}: ${number1} - ${number2} = ${number1-number2}`);
+console.log(`Multiply ${getDecription()}: ${number1} * ${number2} = ${number1*number2}`);
+console.log(`Divide ${getDecription()}: ${number1} / ${number2} = ${number1 / number2}`);
