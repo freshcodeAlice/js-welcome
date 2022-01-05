@@ -1,21 +1,15 @@
-const weekPlan = {
-    Mon: 'Visit to stomatologist',
-    Tue: 'Got salary',
-    Wed: 'Meet friends',
-    Thu: 'Hard working',
-    Fri: 'Free day',
-    Sat: 'Go to party'
+function Cat(name, age, breed, color,  isMale) {
+    this.name = name;
+    this.age = age;
+    this.breed = breed;
+    this.color = color;
+    this.isMale = isMale;
 }
 
+const cat1 = new Cat('Barsik', 5, 'British', 'blue', true);
+const cat2 = new Cat('Murka', 3, 'British', 'blue', false);
 
-function getPlanning() {
-    const dayWeek = prompt('Type the day: \nMon - for monday \nTue - thuesday\n Wed - Wednesday \n Thu - Thuesday \n Fri - Friday \n Sat - Saturday');
 
-//    alert(weekPlan[dayWeek] ? weekPlan[dayWeek] : 'Nothing planned for this day');
+cat1.girfriend = cat2;
 
-console.log(dayWeek in weekPlan ? weekPlan[dayWeek] : 'There is no such day in our plan'); // 'key' in object
-
-}
-
-getPlanning();
-
+cat1.girfriend.name // или cat1.girlfriend['name']
