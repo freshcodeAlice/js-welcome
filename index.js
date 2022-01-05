@@ -1,15 +1,32 @@
-function Cat(name, age, breed, color,  isMale) {
-    this.name = name;
-    this.age = age;
-    this.breed = breed;
-    this.color = color;
-    this.isMale = isMale;
+'use strict'
+
+function getMultyplyTable() {
+    const table = {};
+
+    for (let i = 1; i < 10; i++) {
+        for (let j = 1; j < 10; j++) {
+            table[`${i} * ${j}`] = i * j;
+        }
+    }
+
+
+    return table;
 }
 
-const cat1 = new Cat('Barsik', 5, 'British', 'blue', true);
-const cat2 = new Cat('Murka', 3, 'British', 'blue', false);
 
+//getMultyplyTable();
 
-cat1.girfriend = cat2;
+/* Напишите функцию, которая принимает число и выводит все его делители от 1 до 10*/
 
-cat1.girfriend.name // или cat1.girlfriend['name']
+function getDividers(number) {
+const dividerTable = {};
+
+    for (let i = 1; i < 10; i++) {
+        if (number % i === 0) {
+           dividerTable[i] = number / i;
+        }
+    }
+    return dividerTable;
+}
+
+//getDividers(12);
