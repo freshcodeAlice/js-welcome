@@ -4,7 +4,12 @@ function MyArray() {
     this.length = 0;
 
     for(let i = 0; i < arguments.length; i++) {
-        this.push(arguments[i]);
+
+        if(isNaN(arguments[i])) {
+         return
+        }
+
+        this.push(+arguments[i]);
     }
 
 
