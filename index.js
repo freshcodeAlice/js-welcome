@@ -1,12 +1,37 @@
 'use strict'
 
-const userTels = {
-    0: '38099544545',
-    1: '38095435434',
-    2: '38099543455',
-    1: 'string'
+function MyArray() {
+    this.length = 0;
+
+    for(let i = 0; i < arguments.length; i++) {
+        this.push(arguments[i]);
+    }
+
+
 }
 
-const arrTels = new Array('38099544545', '38095435434', '38099543455');
+function MyProtoArray() {
 
-const arr = ['test1', 'test2', 12345];
+    this.push = function() {
+        for (let i = 0; i < arguments.length; i++) {
+            this[this.length++] = arguments[i];
+        }
+        return this.length
+    }
+
+    this.pop = function() {
+        if(this.length === 0) {
+            return
+        }
+
+        const delItem = this[this.length - 1];
+        delete this[--this.length];
+        return delItem;
+    }
+}
+
+MyArray.prototype = new MyProtoArray(); //связь с прототипом
+
+
+const myArr = new MyArray();
+
