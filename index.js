@@ -1,34 +1,22 @@
 'use strict';
 
-/* Напишите конструктор для объекта "Лестница".
-У нее должно быть:
-value - значение ступеньки, на которой вы находитесь
+/* 
 
-И три метода:
-up() - подняться на ступеньку вверх
-down() - спустить на ступеньку вниз
-showStep() - посмотреть текущую ступеньку
+Дан массив arr, состоящий из чисел. Найдите среднее арифметическое всех его элементов
+
 */
 
-/* Task2:
-Измените код таким образом, чтобы мы могли делать цепочку вызовов:
-ladder.up().up().down().up().showStep();
-*/
+function getAverage() {
 
+    let sum = 0;
 
-function Ladder () {
-    this.value = 0;
-    this.up = function() {
-        this.value++;
-        return this;
-    };
-    this.down = function() {
-        this.value--;
-        return this;
-    };
-    this.showStep = function() {
-        return this.value;
-    };
+    for (let i = 0; i < arguments.length; i++) {
+        sum += arguments[i];
+    }
+
+    return (sum / arguments.length);
+
 }
 
-const ladder = new Ladder();
+const array = [2, 3, 4, 5, 6, 7];
+console.log(getAverage(2, 3, 4, 5, 6, 7));
