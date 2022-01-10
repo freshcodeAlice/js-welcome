@@ -1,42 +1,30 @@
 'use strict'
 
-function MyArray() {
-    this.length = 0;
 
-    for(let i = 0; i < arguments.length; i++) {
+/*
+Написать функцию, принимающую в качестве параметра размер будущего квадрата и символ, которым мы будем его отрисовывать.
+Функция должна выводить (рисовать) в консоль квадрат заданной размерности с отрисованной диагональю (пример в приложенной картинке).
+ */
 
-        if(isNaN(arguments[i])) {
-         return
+function drowSquareWithDiagonal (dimension, drowSymbol) {
+
+    let str = '';
+
+    for (let i = 0; i < dimension; i++) {
+       for (let j = 0; j < dimension; j++) {   
+        if(i === 0 || i === (dimension-1) || j === 0 || j === (dimension-1) || i === j) {
+            str+= drowSymbol;
+        } else {
+            str += ' ';
         }
+       }
+       str += '\n';
 
-        this.push(+arguments[i]);
     }
 
+return str;
 
 }
 
-function MyProtoArray() {
 
-    this.push = function() {
-        for (let i = 0; i < arguments.length; i++) {
-            this[this.length++] = arguments[i];
-        }
-        return this.length
-    }
-
-    this.pop = function() {
-        if(this.length === 0) {
-            return
-        }
-
-        const delItem = this[this.length - 1];
-        delete this[--this.length];
-        return delItem;
-    }
-}
-
-MyArray.prototype = new MyProtoArray(); //связь с прототипом
-
-
-const myArr = new MyArray();
-
+console.log(drowSquareWithDiagonal(10, '*'));
