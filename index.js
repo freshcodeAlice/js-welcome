@@ -1,51 +1,21 @@
 'use strict';
-
-/* 
-
-Даны числа 2, 4, -1, 5, 7, -130, 0, 10. Найдите минимальное и максимальное число.
-Результат вернуть массивом из двух чисел (минимальное, максимальное)
-
-Алгоритм:
-1. Обозначить какие-то два значения как начальные, с ними мы будем сравнивать
-2. Сравнить самое минимальное значение с текущим элементом массива. Если элемент оказался меньше, чем "запомненный" нами минимум, то в качестве минимума теперь "запоминаем" этот элемент.
-Аналогично с максимумом.
-3. Повторяем шаг 2 до конца массива. По выходу мы имеем самое маленькое и самое большое число, которое было встречено.
-Возвращаем из функции массив из этих двух элементов.
-
+/* Дан массив с числами. Проверьте, есть ли в нем два одинаковых числа. (вернуть true, если есть, false, если нет)
 
 */
 
+function hasEqual (array) {
 
-function getMinAndMax() {
-    return [getMin(arguments), getMax(arguments)];
-
-}
-
-function getMin(arr) {
-    let min = arr[0];
-    for (let i = 0; i < arr.length; i++) {
-     
-        if (arr[i] < min) {
-            min = arr[i];
+    for (let i = 0; i < array.length; i++) {
+        let current = array[i];
+       for(let j = i+1; j < array.length; j++) {
+        if (current === array[j]) {
+            return true
         }
-
+       }
+        
     }
-    return min;
+
+    return false
 }
 
-function getMax(arr) {
-    let max = arr[0];
-    for (let i = 0; i < arr.length; i++) {
-
-        if (arr[i] > max) {
-            max = arr[i];
-        }
-
-    }
-    return max;
-}
-
-
-const testArray = [ 2, 4, -1, 5, 7, -130, 0, 10];
-const result = getMinAndMax (2, 4, -1, 5, 15, 7, -130, 0, 10);
-console.log(result);
+const arr = [2, 3, 4, 4, 5, 6];
