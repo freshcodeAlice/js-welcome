@@ -1,14 +1,11 @@
 'use strict';
-/* 
-Создать массив и заполнить его 10тью случайными числами
-*/
+const arr = [2, 7, 3];
 
-function getRandomArray(dimension) {
-const arr = [];
 
-for (let i = 0; i < dimension; i++) {
-     arr.push(Math.round(Math.random()*10));
+for (let i = arr.length; i > 0; i--) {
+    arr[i] = arr[i-1];
 }
 
-return arr;
-}
+arr[0] = 0;
+
+console.log(arr);
