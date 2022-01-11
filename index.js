@@ -1,21 +1,22 @@
 'use strict';
-/* Дан массив с числами. Проверьте, есть ли в нем два одинаковых числа. (вернуть true, если есть, false, если нет)
-
+/* 
+Функция, которая решает квадратные уравнения
 */
 
-function hasEqual (array) {
+function getRootOfSquare (a, b, c) {
 
-    for (let i = 0; i < array.length; i++) {
-        let current = array[i];
-       for(let j = i+1; j < array.length; j++) {
-        if (current === array[j]) {
-            return true
-        }
-       }
-        
+    let D = b * b - 4 * a * c;
+
+    const result = [];
+
+    if ( D < 0) {
+        return false;
+    } else if ( D === 0) {
+        result[0] = (b / 2 * a * (-1));
+        result[1] = result[0];
+    } else {
+        result[0] = (-b + Math.sqrt(D)) / 2*a;
+        result[1] = (-b - Math.sqrt(D)) / 2*a; 
     }
-
-    return false
+    return result;
 }
-
-const arr = [2, 3, 4, 4, 5, 6];
