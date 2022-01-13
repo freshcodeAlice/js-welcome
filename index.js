@@ -1,17 +1,29 @@
 'use strict';
 
-function test() {
-    console.log(this); // undefined
+function logItem(item, index) {
+        console.log(`${this.title} - ${index+1}: ${item}`);
 }
 
-const test2 = function () {
-    console.log(this); // undefined
+
+const newsPaper = {
+    title: 'Our NewsPaper',
+    articles:['Heading 1', 'Article 2', 'Super News 3'],
+   
+    showArticles: function showArticles() {
+        this.articles.forEach((item, index) => {
+            console.log(`${this.title} - ${index+1}: ${item}`);
+    });
+    }
+
+/*    showArticles: function showArticles() { // forEach native options
+    this.articles.forEach(logItem, this);
+} */
+
+/*    showArticles: function showArticles() { // forEach native options
+    this.articles.forEach(logItem.bind(this));
+} */
+
+
 }
 
-const test3 = () => {
-    console.log(this); //Window
-}
-
-test();
-test2();
-test3();
+newsPaper.showArticles();
