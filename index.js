@@ -1,29 +1,16 @@
 'use strict';
 
-function logItem(item, index) {
-        console.log(`${this.title} - ${index+1}: ${item}`);
-}
-
-
-const newsPaper = {
-    title: 'Our NewsPaper',
-    articles:['Heading 1', 'Article 2', 'Super News 3'],
-   
-    showArticles: function showArticles() {
-        this.articles.forEach((item, index) => {
-            console.log(`${this.title} - ${index+1}: ${item}`);
-    });
+function sumAll() {
+    let res = null;
+    console.log(arguments);
+    for (let i = 0; i < arguments.length; i++) {
+       res += arguments[i];
     }
-
-/*    showArticles: function showArticles() { // forEach native options
-    this.articles.forEach(logItem, this);
-} */
-
-/*    showArticles: function showArticles() { // forEach native options
-    this.articles.forEach(logItem.bind(this));
-} */
-
-
+    return res;
 }
 
-newsPaper.showArticles();
+
+const sumAllArrow = (...restArr) => {
+const sumOfIt = restArr.reduce((sum, currentValue) => sum + currentValue);
+ sumOfIt;
+}
