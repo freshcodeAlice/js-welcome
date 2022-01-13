@@ -1,11 +1,17 @@
 'use strict';
-const arr = [2, 7, 3];
 
-
-for (let i = arr.length; i > 0; i--) {
-    arr[i] = arr[i-1];
+function test() {
+    console.log(this); // undefined
 }
 
-arr[0] = 0;
+const test2 = function () {
+    console.log(this); // undefined
+}
 
-console.log(arr);
+const test3 = () => {
+    console.log(this); //Window
+}
+
+test();
+test2();
+test3();
