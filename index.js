@@ -1,11 +1,10 @@
 'use strict';
 
+/* 
+Дана строка 'Я-учу-javascript!'. Замените все дефисы на '!' с помощью глобального поиска и замены
 
-function truncat(string, maxLength) {
+(метод replaceAll)
+*/
 
-    if(string.length > maxLength) {
-        return string.substring(0, maxLength) + '...';
-    }
-
-    return string;
-}
+const string = 'Я-учу-javascript!';
+string.replaceAll('-','!');
