@@ -1,45 +1,23 @@
 'use strict';
 
-
-function User(firstName, lastName, age, email, isMale, isSubscribe = false) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.age = age;
-    this.email = email;
-    this.isMale = isMale;
-    this.isSubscribe = isSubscribe;
-
-    this.getFullName = function () {
-        return `${this.firstName} ${lastName}`;
-    }
+/*  Старый вариант:
+function getCapitalizeString(str) {
+    const strArray = str.split(' '); //Сплитим строку, превращаем в массив
+    const wordUp = strArray.map((word) => { //Метод map вызывает указанный коллбэк для каждого перебираемого элемента массива. Коллбек получает от мэпа currentValue, слово (поштучно каждое).
+        const firstLetter = word[0].toUpperCase(); //Берем у слова первый символ и делаем его большой буквой
+        const resultWord = firstLetter+word.substring(1); //Склеиваем полученную большую букву с подстрокой, начинающейся с первого символа (то есть обрезок слова)
+        return resultWord; //возвращаем готовое слово
+    });
+const resultString = wordUp.join(' '); // объединяем массив с готовыми словами в строку, используя в качестве разделения слов - пробел.
+return resultString;
 }
-
-function createRandomUser(quantity) {
-    const res = [];
-
-    for (let i = 0; i < quantity; i++) {
-        const user = new User(
-            `Name${i}`,
-            `LastName ${i}`,
-            Math.round(Math.random()*100),
-            `mail${i}@test.com`,
-            Math.random() > 0.5
-        );
-        res.push(user);
-    }
-
-    return res;
-}
-
-const userArr = createRandomUser(50);
-console.table(userArr);
-
-
-/* Tasks:
-
-1. Получить массив полных имен с помощью .map()
-2. Получить массив совершеннолетних пользователей
-3. Зарандомить подписку у пользователей
-4. Получить массив подписанных совершеннолетних пользователей женского пола, но вывести только их почту
 
 */
+
+// Новый вариант
+function getCapitalizeString(str) {
+    return str.split(' ')
+    .map(word => word[0].toUpperCase()+word.substring(1))
+    .join(' ');
+}
+
