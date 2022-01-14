@@ -13,6 +13,11 @@ function MyArray() {
     }
 }
 
+MyArray.isMyArray = function isMyArray(obj) {
+    return (obj instanceof MyArray);
+}
+
+
 function MyProtoArray() {
 
     this.push = function() {
@@ -80,6 +85,3 @@ function MyProtoArray() {
 }
 
 MyArray.prototype = new MyProtoArray(); //связь с прототипом
-
-
-
