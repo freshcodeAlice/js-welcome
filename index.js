@@ -6,6 +6,13 @@
 const arr = [2, 3, [5, 6], 7, [8, [1, 2]], 8]
 */
 
+/**
+ * 
+ * @description Рекурсивная функция нахождения максимума из массива с вложенными массивами
+ * @param {Array} array Массив
+ * @returns {number}
+ */
+
 
 function getMax(array) {
     let max = array[0];
