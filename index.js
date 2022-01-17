@@ -1,24 +1,29 @@
 'use strict';
 
 /* 
+Найти максимальное число в массиве, который содержит числа или другие массивы чисел.
 
-Дано число N, вывести все его цифры в обратном порядке, разделяя строками (или пробелами)
-
-
-
-5 = 5
-
-25 = 5 2
-
-543 = 3 4 5
-
+const arr = [2, 3, [5, 6], 7, [8, [1, 2]], 8]
 */
 
-function getReverseNumber(number) {
-    if (number % 100 < 10) {
-        return number;
+
+function getMax(array) {
+    let max = array[0];
+
+    for (let i = 0; i < array.length; i++) {
+        let item = array[i];
+
+        if (Array.isArray(item)) {
+            item = getMax(item);
+        }
+
+        if (item > max) {
+            max = item;
+        }
     }
-    return `${number % 10} ${getReverseNumber(Math.floor(number / 10))}`
+    return max;
 }
 
-console.log(getReverseNumber(123456));
+
+const arr = [2, 3, [5, 6], 7, [8, [1, 2]], 8];
+
