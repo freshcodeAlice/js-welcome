@@ -1,16 +1,24 @@
 'use strict';
-/*
-5! = 1*2*3*4*5;
-5! = 4!*5;
-5! = 3!*4*5;
+
+/* 
+
+Дано число N, вывести все его цифры в обратном порядке, разделяя строками (или пробелами)
+
+
+
+5 = 5
+
+25 = 5 2
+
+543 = 3 4 5
+
 */
 
-function getFactorial(n) {
-    if( n === 1) {
-        return 1;
+function getReverseNumber(number) {
+    if (number % 100 < 10) {
+        return number;
     }
-
-    return getFactorial(n-1)*n;
+    return `${number % 10} ${getReverseNumber(Math.floor(number / 10))}`
 }
 
-getFactorial(5);
+console.log(getReverseNumber(123456));
