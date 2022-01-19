@@ -1,62 +1,46 @@
-class Squirrel {
-    constructor (name, color) {
+/* 
+Три кита ООП:
+
+1. Инкапсуляция +
+2. Наследование +
+3. Полиморфизм
+
+*/
+
+class Figure {
+    constructor(name) {
         this.name = name;
-        this.color = color;
     }
 
-    eat() {
-        return `${this.name} is eating`;
-    }
+    getArea() {
 
-    jump() {
-        return `${this.name} is jumping`;
     }
 }
 
-/* Белка-Летяга,
-умеет все то же самое + умеет летать
-+ свойство maxDistance
-
-*/
-class FlyingSquirrel extends Squirrel {
-    constructor (name, color, maxDistance) {
-        super(name, color);
-        this.distance = maxDistance;
+class Triangle extends Figure {
+    constructor(name, a, b, angle) {
+        super(name);
+        this._a = a;
+        this._b = b;
+        this._angle = angle;
     }
 
-    flying(distanceValue){
-        if(distanceValue > this.distance) {
-            return 'Я не могу так далеко улететь';
-        }
-        return 'Я улетела';
+    getArea() { //override - переопределенный метод
+        return this._a * this._b * Math.sin(this._angle * 180 / Math.PI);
     }
 }
 
-const flSq = new FlyingSquirrel('Flying Squirrel', 'red', 20);
-
-/* FairySquirrel
-умеет всё то, что и обычная + летать + петь песни и танцевать
-Репертуар песен - массив
-Метод sing() должен выводить все песни репертуара построчно
-Метод dance() должен вернуть простую строку "Имя_рек танцует"
-*/
-
-class FairySquirrel extends FlyingSquirrel {
-    constructor(name, color, maxDistance, songs) {
-        super(name, color, maxDistance);
-        this.songs = songs;
+class Square extends Figure{
+    constructor(name, a) {
+        super(name);
+        this.a = a;
     }
 
-    dance() {
-        return `${this.name} is dancing`;
-    }
-
-
-    sing() {
-        return this.songs.join(', ');
+    getArea() { //override - переопределенный метод
+        return this.a * this.a;
     }
 }
 
-const ourSongs = ['Жуки - Батарейка', 'Плач Єремії - Вона', 'Rammstein - Sonne'];
+const t = new Triangle('triangle', 7, 3, 120);
 
-const fairySquirrell = new FairySquirrel('SuperBelka', 'blue', 200, ourSongs);
+const s = new Square('square', 4);
