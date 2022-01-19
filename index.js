@@ -3,7 +3,7 @@
 
 1. Инкапсуляция +
 2. Наследование +
-3. Полиморфизм
+3. Полиморфизм +
 
 */
 
@@ -44,3 +44,27 @@ class Square extends Figure{
 const t = new Triangle('triangle', 7, 3, 120);
 
 const s = new Square('square', 4);
+
+/**
+ * 
+ * @param {Figure} figure 
+ */
+function getFigureArea(figure) {
+
+    if( figure instanceof Figure) {
+        return figure.getArea()
+    }
+    throw new TypeError('It`s not a figure');
+}
+
+/*
+console.log(t instanceof Triangle); //true
+console.log(t instanceof Figure); //true
+console.log(t instanceof Object); //true
+
+*/
+
+/* Написать класс Circle
+унаследуйте его от Figure, добавьте метод рассчета площади по радиусу
+
+*/
