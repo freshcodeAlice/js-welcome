@@ -1,56 +1,62 @@
-class User {
-    constructor(name, surname, age, isBanned = false) {
+class Squirrel {
+    constructor (name, color) {
         this.name = name;
-        this.surname = surname;
-        this.age = age;
-        this.isBanned = isBanned;
-    }
-    getFullName() {
-        return `${this.name} ${this.surname}`;
-    }
-}
-
-class Moderator extends User{
-    constructor(name, surname, age, isBanned, access) {
-        super(name, surname, age, isBanned);
-        this.access = access;
+        this.color = color;
     }
 
-    createMessage(msgBody) {
+    eat() {
+        return `${this.name} is eating`;
     }
-    deleteMessage(id) {
+
+    jump() {
+        return `${this.name} is jumping`;
     }
 }
 
-const u = new User('Staruha', 'Shapoklyak', 50);
+/* Белка-Летяга,
+умеет все то же самое + умеет летать
++ свойство maxDistance
 
-const moder = new Moderator('Krokodil', 'Gena', 35);
+*/
+class FlyingSquirrel extends Squirrel {
+    constructor (name, color, maxDistance) {
+        super(name, color);
+        this.distance = maxDistance;
+    }
 
-/* Создайте роль Админа, который умеет все то же, что и User, плюс возможность забанить и разбанить пользователя
+    flying(distanceValue){
+        if(distanceValue > this.distance) {
+            return 'Я не могу так далеко улететь';
+        }
+        return 'Я улетела';
+    }
+}
 
-bun(user)
-unbun(user)
+const flSq = new FlyingSquirrel('Flying Squirrel', 'red', 20);
+
+/* FairySquirrel
+умеет всё то, что и обычная + летать + петь песни и танцевать
+Репертуар песен - массив
+Метод sing() должен выводить все песни репертуара построчно
+Метод dance() должен вернуть простую строку "Имя_рек танцует"
 */
 
-class Admin extends User {
-    constructor (name, surname, age, email){
-        super(name, surname, age, false);
-        this.email = email;
+class FairySquirrel extends FlyingSquirrel {
+    constructor(name, color, maxDistance, songs) {
+        super(name, color, maxDistance);
+        this.songs = songs;
     }
 
-    toggleBan(user) {
-        if (user instanceof User) {
-            user.isBanned = !user.isBanned;
-        } else {
-        throw new TypeError('Its not a user');
-        }
+    dance() {
+        return `${this.name} is dancing`;
+    }
+
+
+    sing() {
+        return this.songs.join(', ');
     }
 }
 
-class Owner extends Admin{
+const ourSongs = ['Жуки - Батарейка', 'Плач Єремії - Вона', 'Rammstein - Sonne'];
 
-}
-
-class Founder extends Owner {
-    
-}
+const fairySquirrell = new FairySquirrel('SuperBelka', 'blue', 200, ourSongs);
