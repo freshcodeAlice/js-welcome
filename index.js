@@ -1,38 +1,56 @@
-'use strict';
-
-class Animal {
-    constructor(name, amountOfLegs, type) {
+class User {
+    constructor(name, surname, age, isBanned = false) {
         this.name = name;
-        this.amountOfLegs = amountOfLegs;
-        this.type = type;
+        this.surname = surname;
+        this.age = age;
+        this.isBanned = isBanned;
+    }
+    getFullName() {
+        return `${this.name} ${this.surname}`;
+    }
+}
+
+class Moderator extends User{
+    constructor(name, surname, age, isBanned, access) {
+        super(name, surname, age, isBanned);
+        this.access = access;
     }
 
-    set name(v) {
-        if(typeof v !== 'string') {
-            throw new TypeError();
+    createMessage(msgBody) {
+    }
+    deleteMessage(id) {
+    }
+}
+
+const u = new User('Staruha', 'Shapoklyak', 50);
+
+const moder = new Moderator('Krokodil', 'Gena', 35);
+
+/* Создайте роль Админа, который умеет все то же, что и User, плюс возможность забанить и разбанить пользователя
+
+bun(user)
+unbun(user)
+*/
+
+class Admin extends User {
+    constructor (name, surname, age, email){
+        super(name, surname, age, false);
+        this.email = email;
+    }
+
+    toggleBan(user) {
+        if (user instanceof User) {
+            user.isBanned = !user.isBanned;
+        } else {
+        throw new TypeError('Its not a user');
         }
-        this._name = v;
     }
+}
 
-    get name() {
-        return this._name;
-    }
-
-    run() {
-        return `${this.name} is runing`;
-    }
-
-    eat() {
-        return `${this.name} is eating`;
-    }
-
-    static isAnimal(obj) {
-        return obj instanceof Animal;
-    }
+class Owner extends Admin{
 
 }
 
-
-
-const lion = new Animal('Simba', 4, 'Lion');
-const turtle = new Animal('Totilla', 4, 'Turtle');
+class Founder extends Owner {
+    
+}
