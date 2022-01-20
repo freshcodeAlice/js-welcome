@@ -1,5 +1,21 @@
 'use strict'
 
+class MyArrayIterator {
+    constructor (myArray){
+        this.array = myArray;
+        this.currentItem = 0;
+    }
+
+next() {
+    return {
+        value: this.array[this.currentItem++],
+        done: this.currentItem > this.array.length,
+    }
+}
+}
+
+
+
 class MyArray {
     constructor(...args) {
         this.length = 0;
@@ -116,7 +132,13 @@ class MyArray {
 
 }
 
+
+    [Symbol.iterator]() {
+        return new MyArrayIterator(this);
+    }
 }
 
 
-const arr = new MyArray(1, 2, new MyArray(4, 3, new MyArray(4, 5)));
+
+const arr = new MyArray(1, 2, 3, 4, 5);
+
