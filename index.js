@@ -1,4 +1,10 @@
 class Friend {
+/**
+ * 
+ * @param {number} amount 
+ * @param {Friend[]} friends 
+ */
+
     constructor(amount, friends = []){
         this.amount = amount;
         this.friends = friends;
@@ -19,7 +25,7 @@ class Friend {
 
 const myFriend = new Friend(10);
 const myFriend2 = new Friend(20, [new Friend(5)]);
-const me = new Friend(5, [myFriend, myFriend2]);
+const me = new Friend(5, [myFriend]);
 
 
 me.getSum();
