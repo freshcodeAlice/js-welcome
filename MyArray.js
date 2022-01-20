@@ -1,33 +1,27 @@
 'use strict'
 
-function MyArray() {
-    this.length = 0;
-
-    for(let i = 0; i < arguments.length; i++) {
-
-        if(isNaN(arguments[i])) {
-         return
+class MyArray {
+    constructor(...args) {
+        this.length = 0;
+        for(let i = 0; i < args.length; i++) {    
+            this.push(args[i]);
         }
-
-        this.push(+arguments[i]);
     }
-}
-
-MyArray.isMyArray = function isMyArray(obj) {
-    return (obj instanceof MyArray);
-}
 
 
-function MyProtoArray() {
 
-    this.push = function() {
+   static isMyArray = function isMyArray(obj) {
+        return (obj instanceof MyArray);
+    }
+   
+    push() {
         for (let i = 0; i < arguments.length; i++) {
             this[this.length++] = arguments[i];
         }
         return this.length
     }
 
-    this.pop = function() {
+    pop() {
         if(this.length === 0) {
             return
         }
@@ -36,13 +30,13 @@ function MyProtoArray() {
         return delItem;
     }
 
-    this.forEach = function forEach(func) {
+   forEach(func) {
         for (let i = 0; i < this.length; i++) {
             func(this[i], i, this)
         }
     }
 
-    this.map = function map(func) {
+   map(func) {
         const newArray = [];
         for (let i = 0; i < this.length; i++) {
             newArray[i] = func(this[i]);
@@ -50,7 +44,7 @@ function MyProtoArray() {
         return newArray;
     }
 
-    this.some = function some(func) {
+   some(func) {
         for (let i = 0; i < this.length; i++) {
             const result = func(this[i]);
            if (result) {
@@ -60,7 +54,7 @@ function MyProtoArray() {
         return false;
     }
 
-    this.every = function every(func) {
+    every(func) {
         for (let i = 0; i < this.length; i++) {
         const result = func(this[i]);        
            if (!result) {
@@ -70,8 +64,19 @@ function MyProtoArray() {
         return true;
     }
 
+    concat(arr) {
+        const res = new MyArray();
+        for (let i = 0; i < this.length; i++) {
+           res.push(this[i]);  
+        }
+        for (let j = 0; j < arr.length; j++) {
+            res.push(arr[j]);  
+         }
+        return res;
+    }
 
-    this.filter = function filter(func) {
+
+   filter(func) {
         const newArray = [];
         for (let i = 0; i < this.length; i++) {
             const result = func(this[i]);
@@ -81,7 +86,37 @@ function MyProtoArray() {
         }
         return newArray;
     }
+    
+
+    flat(depth = 1) {
+     let res = new MyArray();
+
+    //     for (let i = 0; i < this.length; i++) {
+
+    //         if(this[i]===undefined) {
+    //             continue;
+    //         }
+    //         if(MyArray.isMyArray(this[i]) && depth){
+    //             res = res.concat(this[i].flat(depth - 1));
+
+    //         } else {
+    //             res.push(this[i]);
+    //         }            
+    //     }
+    //     
+    
+        this.forEach((item)=>{
+            if(MyArray.isMyArray(item) && depth){
+             res = res.concat(item.flat(depth - 1));
+            } else if (item !== undefined) {
+              res.push(item);
+            }
+        })
+        return res;
 
 }
 
-MyArray.prototype = new MyProtoArray(); //связь с прототипом
+}
+
+
+const arr = new MyArray(1, 2, new MyArray(4, 3, new MyArray(4, 5)));
