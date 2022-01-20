@@ -1,70 +1,25 @@
-/* 
-Три кита ООП:
-
-1. Инкапсуляция +
-2. Наследование +
-3. Полиморфизм +
-
-*/
-
-class Figure {
-    constructor(name) {
-        this.name = name;
+class Friend {
+    constructor(amount, friends = []){
+        this.amount = amount;
+        this.friends = friends;
     }
 
-    getArea() {
+    getSum() {
 
-    }
-}
-
-class Triangle extends Figure {
-    constructor(name, a, b, angle) {
-        super(name);
-        this._a = a;
-        this._b = b;
-        this._angle = angle;
-    }
-
-    getArea() { //override - переопределенный метод
-        return this._a * this._b * Math.sin(this._angle * 180 / Math.PI);
+        if(this.friends.length) {
+            return this.friends.reduce(
+                (result, friend)=>{
+                    return result + friend.getSum();
+                },
+                this.amount);
+        }
+        return this.amount;
     }
 }
 
-class Square extends Figure{
-    constructor(name, a) {
-        super(name);
-        this.a = a;
-    }
+const myFriend = new Friend(10);
+const myFriend2 = new Friend(20, [new Friend(5)]);
+const me = new Friend(5, [myFriend, myFriend2]);
 
-    getArea() { //override - переопределенный метод
-        return this.a * this.a;
-    }
-}
 
-const t = new Triangle('triangle', 7, 3, 120);
-
-const s = new Square('square', 4);
-
-/**
- * 
- * @param {Figure} figure 
- */
-function getFigureArea(figure) {
-
-    if( figure instanceof Figure) {
-        return figure.getArea()
-    }
-    throw new TypeError('It`s not a figure');
-}
-
-/*
-console.log(t instanceof Triangle); //true
-console.log(t instanceof Figure); //true
-console.log(t instanceof Object); //true
-
-*/
-
-/* Написать класс Circle
-унаследуйте его от Figure, добавьте метод рассчета площади по радиусу
-
-*/
+me.getSum();
