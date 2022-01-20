@@ -1,31 +1,23 @@
-class Friend {
-/**
- * 
- * @param {number} amount 
- * @param {Friend[]} friends 
- */
-
-    constructor(amount, friends = []){
-        this.amount = amount;
-        this.friends = friends;
-    }
-
-    getSum() {
-
-        if(this.friends.length) {
-            return this.friends.reduce(
-                (result, friend)=>{
-                    return result + friend.getSum();
-                },
-                this.amount);
-        }
-        return this.amount;
-    }
-}
-
-const myFriend = new Friend(10);
-const myFriend2 = new Friend(20, [new Friend(5)]);
-const me = new Friend(5, [myFriend]);
+/*
+1. Number - numbers, Infinity, NaN, +0, -0 
+2. Boolean - false/true
+3. BigInt - 0n,
+4. String - набор символов юникода
+5. Symbol 
+6. null - null
+7. undefined - undefined
 
 
-me.getSum();
+8. Object
+Хранилище любых данных
+Свойства, методы
+
+*/
+const mySymbol = Symbol('Просто метка для людей');
+const mySymbol2 = Symbol('Просто метка для людей');
+
+const obj = {
+    login: 'user1234',
+    mySymbol: 'hello'
+};
+
