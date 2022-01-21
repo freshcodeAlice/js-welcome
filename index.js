@@ -1,23 +1,25 @@
-/*
-1. Number - numbers, Infinity, NaN, +0, -0 
-2. Boolean - false/true
-3. BigInt - 0n,
-4. String - набор символов юникода
-5. Symbol 
-6. null - null
-7. undefined - undefined
+/* Задача "Палиндром"
+Проверить, что входная строка читается слева-направо и справа-налево одинаково
 
-
-8. Object
-Хранилище любых данных
-Свойства, методы
-
+Используйте методы строк и массивов
 */
-const mySymbol = Symbol('Просто метка для людей');
-const mySymbol2 = Symbol('Просто метка для людей');
 
-const obj = {
-    login: 'user1234',
-    mySymbol: 'hello'
-};
 
+function isPalindrom(testString) {
+    return testString.toLowerCase() === testString.toLowerCase().split('').reverse().join('');
+}
+
+/* 
+Нужно написать функцию, принимающую строку в качестве аргумента и возвращающую количество гласных, которые содержатся в строке.
+
+Гласными являются «a», «e», «i», «o», «u»
+*/
+
+function getVowels(testString) {
+    return testString
+    .toLowerCase()
+    .split('')
+    .filter((letter) =>  ['a', 'e', 'i', 'o', 'u']
+    .includes(letter)
+    ).length;
+}
