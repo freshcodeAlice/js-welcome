@@ -1,25 +1,42 @@
-/* Задача "Палиндром"
-Проверить, что входная строка читается слева-направо и справа-налево одинаково
+/* Реализуйте класс Студент, который наследуется от класса Юзер.
 
-Используйте методы строк и массивов
+Этот класс должен иметь следующие свойства:
+name (имя, наследуется от User),
+lastName (фамилия, наследуется от User),
+year (год поступления)
+
+Методы:
+getFullName() - наследуется от User
+getCourse() - выводит текущий курс студента (от 1 до 5). Курс вычисляется (от текущего года отнять год поступления). Текущий год получить самостоятельно.
+
 */
 
 
-function isPalindrom(testString) {
-    return testString.toLowerCase() === testString.toLowerCase().split('').reverse().join('');
+
+
+class User {
+    constructor(name, lastName) {
+        this.name = name;
+        this.lastName = lastName;
+    }
+
+    getFullName() {
+        return `${this.name} ${this.lastName}`;
+    }
 }
 
-/* 
-Нужно написать функцию, принимающую строку в качестве аргумента и возвращающую количество гласных, которые содержатся в строке.
+class Student extends User {
+    constructor(name, lastName, year) {
+        super(name, lastName);
+        this.year = year;
+    }
 
-Гласными являются «a», «e», «i», «o», «u»
-*/
+    getCourse() {
+        const res = new Date().getFullYear() - this.year;
 
-function getVowels(testString) {
-    return testString
-    .toLowerCase()
-    .split('')
-    .filter((letter) =>  ['a', 'e', 'i', 'o', 'u']
-    .includes(letter)
-    ).length;
+        return res > 5 ? `${this.name} has graduated` : res;
+    }
+
 }
+
+const stud = new Student('Test', 'Tester', 2010);
