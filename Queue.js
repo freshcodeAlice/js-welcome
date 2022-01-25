@@ -40,3 +40,23 @@ class Queue {
     }
 
 }
+
+
+function mergeQueues(q1, q2) {
+const result = new Queue();
+
+while(q1.size || q2.size) {
+    if(q1.size) {
+        result.push(q1.pop());
+    }
+    if (q2.size) {
+        result.push(q2.pop());
+    }
+
+}
+
+return result;
+}
+
+const q1 = new Queue(2, 9, 10);
+const q2 = new Queue(5);
