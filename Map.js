@@ -113,4 +113,17 @@ function compare(str1, str2) {
 
 }
 
-console.log(compare('test', 'sett'));
+//console.log(compare('test', 'sett'));
+
+
+/* ----- */
+
+/* Массив со вложенными подмассивами-кортежами */
+
+[...vocabulary.entries()]
+
+/* -----*/
+
+const cortArr = [['key1', 'value1'], ['key2', 'value2'], ['key3', 'value3']]
+
+const newMap = new Map(cortArr);
