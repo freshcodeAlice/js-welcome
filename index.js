@@ -1,59 +1,112 @@
-'use strict'
+/*
+    Деструктуризация - это особый способ создания переменных.
+*/
 
-const vocabulary = new Map();
+// Деструктуризация объектов
 
-vocabulary.set('cat', 'кошка');
-vocabulary.set('dog', 'собака');
-vocabulary.set('cucumber', 'огурец');
-vocabulary.set('tomato', 'помидор');
-vocabulary.set('orange', 'апельсин');
-vocabulary.set('pineapple', 'ананас');
-vocabulary.set('car', 'автомобиль');
-vocabulary.set('fruit', 'фрукт');
-vocabulary.set('vocabulary', 'словарь');
-vocabulary.set('can', 'банка');
-vocabulary.set('ball', 'мяч');
-
-
-const userInput = 'Cat dOg Tomato abracadabra cucUmber cAn balL';
-
-function translate(str) {
-   return str.toLowerCase()
-   .split(' ')
-   .map((word)=> vocabulary.has(word) ? vocabulary.get(word) : word)
-   .join(' ');
+const monitor = {
+    sizes: {
+        height:{
+            value: 20,
+            scale: 'sm',
+        },
+        width: {
+            value: 40,
+            scale: 'sm',
+        }
+    },
+    brightness: 200,
+    contrast: 100,
+    color:'black',
+    dpi: 300,
+    resolution: '4K',
+    model: {
+        company: 'Samsung',
+        type: '9872927628347'
+    }
 }
 
+// monitor.sizes.width.value
 
-/*   Task: 
-Связать пользователя и его сообщения таким образом, чтобы мы могли получить его сообщения по объекту пользователя     */
+//const monitorWidth = monitor.sizes.width.value;
 
-const user1 = {
-    name: 'John',
-    age: 20,
-    id: 1,
+// Bad practice!
+//const monitorBrightness = monitor.brightness;
+
+//Good practice!
+//const {brightness} = monitor; 
+//const {brightness, contrast, dpi} = monitor;
+
+
+
+//Bad practice
+// Так плохо, так не надо!
+//const {sizes} = monitor;
+//const {width} = sizes;
+//const {value} = width;
+
+// Good practice!
+const {
+    sizes: {
+        width: {
+            value: widthValue
+        },
+        height: {
+            value: heightValue
+        }
+    }
+} = monitor;
+
+
+// ---- Rest
+
+const {color, dpi, ...restMonitor} = monitor;
+
+
+/* ---------------- */
+
+// Деструктуризация массивов
+
+const num = [1, 2, 3, 4, 5];
+
+// Bad practice!
+//const firstNumber = num[0]
+
+// Good practice!
+
+//const [firstNumber, secondNumber, thirdNumber] = num;
+
+//const [firstNumber, secondNumber, ...restNums] = num;
+
+const [firstNumber,, thirdNumber,, fifth] = num;
+
+
+/* ---------------- */
+
+
+// Деструктуризация входных параметров
+
+const user = {
+    name: 'TEst',
+    lastName: 'Tester'
 }
 
-const user2 = {
-    name: 'Jane',
-    age: 21,
-    id: 2,
+function getFullName({name, lastName}) {
+
+return `${name} ${lastName}`;
 }
+//
 
 
-const johnMsg = ['ewwre', 'rewreewre', 'rewrerew'];
-const janeMsg = ['tertwe', 'hgjghjghj', 'afdasdfsd'];
 
-const userMessageMap = new Map();
-userMessageMap.set(user1, johnMsg);
-userMessageMap.set(user2, janeMsg);
 
-/*-------*/
 
-const engArray = [...vocabulary.keys()];
 
-console.log(engArray);
 
-const ruArray = [...vocabulary.values()];
 
-console.log(ruArray);
+// Homework
+// Деструктурировать параметры высоты и ширины экрана
+// Вернуть значение диагонали
+function getDiagonal(monitor) {
+
+}
