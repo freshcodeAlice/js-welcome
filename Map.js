@@ -51,11 +51,66 @@ userMessageMap.set(user2, janeMsg);
 /*-------*/
 
 const engArray = [...vocabulary.keys()];
-
-console.log(engArray);
-
 const ruArray = [...vocabulary.values()];
 
-console.log(ruArray);
-
 /*-----*/
+
+
+/* Task:
+Напишите функцию, которая проверяет, может ли строка быть воссоздана с использованием символов другой строки.
+Первый параметр функции - создаваемая строка.
+Второй параметр - используемая строка.
+Функция возвращает Boolean.
+Use Map.
+
+Тест-кейсы:
+compare('test', 'setT') // true
+compare('love', 'evol') // true
+compare('test', 'lore') //false
+compare('Mom', 'omo') //false
+
+Алгоритм решения:
+1. Сравнить длину. Если не одинаковая - false
+2. Создать "словарь"-Map. Буква будет ключом, значением - кол-во вхождений.
+3. Создать такой же словарь для второй строки.
+4. Сравнить два словаря (их содержание).
+
+*/
+
+function getMap(str) {
+    const letterMap = new Map();
+    for(const letter of str) {
+        if(letterMap.has(letter)) {
+            const letterCount = letterMap.get(letter);
+            letterMap.set(letter, letterCount+1);
+        } else {
+            letterMap.set(letter, 1);
+        }
+    }
+    return letterMap;
+}
+
+
+function compare(str1, str2) {
+
+    if(str1.length !== str2.length) {
+        return false;
+    }
+
+    const mapToStr1 = getMap(str1);
+    const mapToStr2 = getMap(str2);
+
+    if(mapToStr1.size !== mapToStr2.size) {
+        return false
+    }
+
+    for (const key of mapToStr1.keys()){
+        if(mapToStr1.get(key) !== mapToStr2.get(key)){
+            return false
+        }
+    }
+    return true
+
+}
+
+console.log(compare('test', 'sett'));
