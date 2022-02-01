@@ -16,7 +16,7 @@ const options = {
 
 
 function checkSequence (str, {braces, isStrict}) {
-const stack = new Stack();
+const stack = new Stack(str.length);
 const closeBraces = Object.values(braces);
 
 for(const symbol of str) {
