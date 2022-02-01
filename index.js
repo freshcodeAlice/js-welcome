@@ -29,15 +29,11 @@ for(const symbol of str) {
         return false;
     }
 
-    const lastItemFromStack = stack.pick();
-    const correctCloseBrace = braces[lastItemFromStack];
-    if (symbol === correctCloseBrace) {
+    if (symbol === braces[stack.pick()]) {
         stack.pop();
     } else if (braces[symbol] || closeBraces.includes(symbol)){
         return false;
     }
-
-
 
 }
 
