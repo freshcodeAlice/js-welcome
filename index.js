@@ -1,112 +1,49 @@
+const options = {
+    braces: {
+    '(': ')',
+    '{': '}',
+    '[':']',
+    },
+    isStrict: false
+}
+
 /*
-    Деструктуризация - это особый способ создания переменных.
+1. Определяем открывающую скобку. Если да - пушим ее в стэк
+2. Если стэк пуст - возвращаем фолс
+3. Если стэк не пуст и встреченный элемент - закрывающая скобка, то забираем последний элемент из стэка
 */
 
-// Деструктуризация объектов
 
-const monitor = {
-    sizes: {
-        height:{
-            value: 20,
-            scale: 'sm',
-        },
-        width: {
-            value: 40,
-            scale: 'sm',
-        }
-    },
-    brightness: 200,
-    contrast: 100,
-    color:'black',
-    dpi: 300,
-    resolution: '4K',
-    model: {
-        company: 'Samsung',
-        type: '9872927628347'
+
+function checkSequence (str, {braces, isStrict}) {
+const stack = new Stack();
+const closeBraces = Object.values(braces);
+
+for(const symbol of str) {
+    if (braces[symbol]){
+        stack.push(symbol);
+        continue;
     }
-}
 
-// monitor.sizes.width.value
-
-//const monitorWidth = monitor.sizes.width.value;
-
-// Bad practice!
-//const monitorBrightness = monitor.brightness;
-
-//Good practice!
-//const {brightness} = monitor; 
-//const {brightness, contrast, dpi} = monitor;
-
-
-
-//Bad practice
-// Так плохо, так не надо!
-//const {sizes} = monitor;
-//const {width} = sizes;
-//const {value} = width;
-
-// Good practice!
-const {
-    sizes: {
-        width: {
-            value: widthValue
-        },
-        height: {
-            value: heightValue
-        }
+    if(stack.isEmpty){
+        return false;
     }
-} = monitor;
+
+    const lastItemFromStack = stack.pick();
+    const correctCloseBrace = braces[lastItemFromStack];
+    if (symbol === correctCloseBrace) {
+        stack.pop();
+    } else if (braces[symbol] || closeBraces.includes(symbol)){
+        return false;
+    }
 
 
-// ---- Rest
 
-const {color, dpi, ...restMonitor} = monitor;
-
-
-/* ---------------- */
-
-// Деструктуризация массивов
-
-const num = [1, 2, 3, 4, 5];
-
-// Bad practice!
-//const firstNumber = num[0]
-
-// Good practice!
-
-//const [firstNumber, secondNumber, thirdNumber] = num;
-
-//const [firstNumber, secondNumber, ...restNums] = num;
-
-const [firstNumber,, thirdNumber,, fifth] = num;
-
-
-/* ---------------- */
-
-
-// Деструктуризация входных параметров
-
-const user = {
-    name: 'TEst',
-    lastName: 'Tester'
 }
 
-function getFullName({name, lastName}) {
-
-return `${name} ${lastName}`;
-}
-//
-
-
-
-
-
-
-
-
-// Homework
-// Деструктурировать параметры высоты и ширины экрана
-// Вернуть значение диагонали
-function getDiagonal(monitor) {
+return stack.isEmpty;
 
 }
+
+checkSequence('(})', options)
+
